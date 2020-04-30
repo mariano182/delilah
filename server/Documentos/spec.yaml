@@ -1,0 +1,357 @@
+openapi: 3.0.1
+info:
+  title: Delilah Resto
+  description: Este es un proyecto del curso de Desarrollo Web Full Stack de Acámica.
+  version: 1.0.0
+servers:
+  - url: 'http://localhost/'
+tags:
+  - name: Usuarios
+  - name: Productos
+  - name: Pedidos
+paths:
+  /register:
+    post:
+      tags:
+        - Usuarios
+      summary: Registrarse como usuario
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/registro'
+  /login:
+    post:
+      tags:
+        - Usuarios
+      summary: Iniciar sesión
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/login'
+  /productos:
+    get:
+      tags:
+        - Productos
+      summary: mostrar todos los productos
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+        - name: '/:id'
+          in: path
+          description: requerido si se busca un solo producto
+          schema:
+            type: integer
+            example: 1
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/getProductos'
+    post:
+      tags:
+        - Productos
+      summary: Crear producto
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/postProductos'  
+    put:
+      tags:
+        - Productos
+      summary: Editar producto
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+        - name: '/:id'
+          in: path
+          description: requerido si se busca un solo producto
+          schema:
+            type: integer
+            example: 1
+          required: true  
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/postProductos'
+    delete:
+      tags:
+        - Productos
+      summary: Eliminar producto
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+        - name: '/:id'
+          in: path
+          description: requerido si se busca un solo producto
+          schema:
+            type: integer
+            example: 1
+          required: true  
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/getProductos' 
+  /pedidos:
+    get:
+      tags:
+        - Pedidos
+      summary: mostrar todos los pedidos
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+        - name: '/:id'
+          in: path
+          description: requerido si se busca un solo pedido
+          schema:
+            type: integer
+            example: 1
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pedido'  
+    post:
+      tags:
+        - Pedidos
+      summary: Crear un pedido
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: "Su pedido fue enviado con exito"
+                  rta:
+                    type: integer
+                    description: id del pedido creado
+                    example: 5
+    put:
+      tags:
+        - Pedidos
+      summary: Actualiza estado de pedido
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+        - name: '/:id'
+          in: path
+          description: requerido si se busca un solo pedido
+          schema:
+            type: integer
+            example: 1
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: "El pedido ha sido actualizado"
+                  rta:
+                    type: number
+                    description: id pedido actualizado
+                    example: 6
+components:
+  schemas:
+    login:
+      type: object
+      properties:
+        msg:
+          type: string
+          description: Breve mensaje sobre la consulta
+          example: Bienvenido a Delilah Restó
+        token:
+          type: string
+          description: token para utilizar el resto de las apis
+          example: >-
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+    registro:
+      type: object
+      properties:
+        msg:
+          type: string
+          description: Breve mensaje sobre la consulta
+          example: Estas registrado
+        token:
+          type: string
+          description: token para utilizar el resto de las apis
+          example: >-
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+    getProductos:
+      type: object
+      properties:
+        msg:
+          type: string
+          description: Breve mensaje sobre la consulta
+          example: Productos de Delilah Restó
+        rta:
+          type: array
+          items:
+            $ref: '#/components/schemas/Producto'
+    postProductos:
+      type: object
+      properties:
+        msg:
+          type: string
+          description: Breve mensaje sobre la consulta
+          example: "El producto fue creado con exito"
+        rta:
+          type: array
+          items:
+            type: object
+            properties: 
+              name:
+                type: string
+                example: Pizza Random
+              description:
+                type: string
+                example: PizCho
+              ingredients:
+                type: string
+                example: Masa, queso muzzarela y tomate perita
+              price:
+                type: number
+                example: 251
+              img:
+                type: string
+                example: 'https://www.recetin.com/wp-content/uploads/2012/01/pizza_cuatro_quesos.jpg'
+    Producto:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Pizza de choclo
+        description:
+          type: string
+          example: PizCho
+        ingredients:
+          type: string
+          example: Masa, queso muzzarela y tomate perita
+        price:
+          type: number
+          example: 251
+        img:
+          type: string
+          example: >-
+           'https://www.recetin.com/wp-content/uploads/2012/01/pizza_cuatro_quesos.jpg'
+           
+    Pedido:
+      type: array
+      properties:
+        estado:
+          type: string
+          example: "cancelado"
+        fecha_y_hora:
+          type: string
+          example: "2020-04-28T19:52:59.000Z"
+        numeroOrden:
+          type: integer
+          example: 4
+        descripcion:
+          type: string
+          example: "3XPizCho"
+        formaPago:
+          type: string
+          example: "efectivo"
+        total:
+          type: number
+          example: 400.5
+        user:
+          type: string
+          example: "Juan Roman Riquelme"
+        address:
+          type: string
+          example: "Avenida Siempre Viva 123"

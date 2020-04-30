@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "e660ccdb-5aac-4f94-95dd-dfe1926de233",
+		"name": "Proyecto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/productos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4ODEyMTI5NDgyMCwiaWF0IjoxNTg4MTIxMjk0fQ.vFSPBhBUq0a728LWEVll8cwoR7ci3jguXA4ZJc-tSVY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos"
+					]
+				},
+				"description": "Trae la lista de productos\n\nHeaders:\ncontent-type: application/json\nAuthorization: token. \nBody: nada."
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\": \"Francisco\",\n    \"name\": \"Fran\",\n    \"lastName\": \"Guti\",\n    \"email\": \"franguti@prueba.com\",\n    \"phone\": 3416698742,\n    \"address\": \"Francia3\",\n    \"password\": \"369\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				},
+				"description": "Registrarse usuario nuevo.\n\nheaders: \ncontent-tyoe; aookucatuibs/json;\n \nbody: Es un ejemplo, cambiar campos dentro de las comillas. \n{\n    \"userName\": \"Francisco\",\n    \"name\": \"Fran\",\n    \"lastName\": \"Guti\",\n    \"email\": \"franguti@prueba.com\",\n    \"phone\": 3416698742,\n    \"address\": \"Francia3\",\n    \"password\": \"369\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/productos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4ODIwNDcyMzg5MiwiaWF0IjoxNTg4MjA0NzIzfQ.cHikf0dlNQ1EcBBNx3Kkojd2SpqwB_q8WWHQmUauKWA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"prueba\",\n    \"descripcion\": \"PizQue\",\n    \"ingredientes\": \"Masa, queso muzzarela y tomate perita\",\n    \"costo\": 250,\n    \"img\": \"https://www.recetin.com/wp-content/uploads/2012/01/pizza_cuatro_quesos.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "crear producto (adm);\nheaders: Authorization: token,\ncontent-type: application/json;\nbody: {\n    \"nombre\": \"Pizza de queso\",\n    \"descripcion\": \"PizQue\",\n    \"ingredientes\": \"Masa, queso muzzarela y tomate perita\",\n    \"costo\": 250,\n    \"img\": \"https://www.recetin.com/wp-content/uploads/2012/01/pizza_cuatro_quesos.jpg\"\n    }\n    \nEsto que se encuentra arriba, es un ejemplo, el cual debe ser cambiado para agregar un nuevo producto."
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Francisco\",\n\t\"password\": \"369\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Login usuarios\n\nheaders:\nContent-type: applications/json;\n\nbody"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/productos/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4ODEyMzI5MTY3NSwiaWF0IjoxNTg4MTIzMjkxfQ.RF2fRksvb_tS-XxqSPcUk59ER0HXj9NS1u__4WV8hho",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/productos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos",
+						"1"
+					]
+				},
+				"description": "Accerder a un producto por id.\n\nHeaders: content Type - application.json\nAutorization bearer token"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/productos/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4ODIwNTMyODY3OSwiaWF0IjoxNTg4MjA1MzI4fQ.2Ckb5yLMjeGUaELL-gODVzOSW3DZJCyZmFhF50rDGKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "conte",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Pizza de choclo\",\n    \"descripcion\": \"PizCho\",\n    \"ingredientes\": \"Masa, queso muzzarela y tomate perita\",\n    \"costo\": 251,\n    \"img\": \"https://www.recetin.com/wp-content/uploads/2012/01/pizza_cuatro_quesos.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/productos/10",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos",
+						"10"
+					]
+				},
+				"description": "Editar producto (adm).\n\nheaders:\ncontent-type: application/json\nautorization: token\n\n{\n    \"nombre\": \"Pizza de choclo\",\n    \"descripcion\": \"PizCho\",\n    \"ingredientes\": \"Masa, queso muzzarela y tomate perita\",\n    \"costo\": 251,\n    \"img\": \"https://www.recetin.com/wp-content/uploads/2012/01/pizza_cuatro_quesos.jpg\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/productos/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4ODIwNTgwMzcyNCwiaWF0IjoxNTg4MjA1ODAzfQ.skImumlvYFtxciY6zgd3xW2CJPnx3ZCLZRTsibPauEU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/productos/10",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"productos",
+						"10"
+					]
+				},
+				"description": "eliminar producto (adm)\n\nheaders: Content-type: application/json\nAutorization bearer token\n\nPasar id del que queremos eliminar"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/pedidos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4ODIwNzE0NzY3NywiaWF0IjoxNTg4MjA3MTQ3fQ.SNnymwU_O4_GwIhQRnouV9h7q2z0u1a79PVPAn6ZAss",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"detallePedido\":[{\"id\":1,\"cantidad\":3}],\n\t\"formaPago\": 0,\n\t\"total\": 500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pedidos"
+					]
+				},
+				"description": "Crear un pedido \n\nheaders:\nContent-type: application/json;\nAuthorization: bearer token;\n\nEjemplo del body:\n{\n\t\"detallePedido\":[{\"id\":1,\"cantidad\":3}],\n\t\"formaPago\": 0,\n\t\"total\": 400.50\n}\n\n// detallePedido es un array con la data de los productos del pedido (el id y la cantidad que pidió).\nEl id del producto debe existir."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/pedidos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4ODIwNjEyOTY0MCwiaWF0IjoxNTg4MjA2MTI5fQ.umu78v1aEyry8h8XGDd_Bh4uPT9WJ0J1B-8iktas470",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pedidos"
+					]
+				},
+				"description": "Devuelve lista de pedidos (solo administrador)\n\nheaders: \nContent-type: application/json,\nAuthorization: bearer token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/pedidos/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4ODIwNjk5NjU5MCwiaWF0IjoxNTg4MjA2OTk2fQ.1Sg1lAHCnvn1XtdQtGEVi0LeY1VOlje_NqF2xGBuBKA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/pedidos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pedidos",
+						"1"
+					]
+				},
+				"description": "Trae un solo pedido determinado (adm)\n\nheaders: \ncontent-type: application/json,\n\nAutorization: Bearer token,"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/pedidos/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4ODIwNzU2OTM0MiwiaWF0IjoxNTg4MjA3NTY5fQ.wFGlnbPRyHl35QLe2xIs0fUaU4pajegONFo6TYzu-fY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"estadoPedido\":\"pendiente de confirmación por el local\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/pedidos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pedidos",
+						"1"
+					]
+				},
+				"description": "Actualiza el estado de un pedido en particular:\n\nheaders:\nContent-type: application/json\nAuthorization: beaer token;\n\nEjemplo body:\n{\n\t\"estadoPedido\":\"cancelado\"\n}"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
