@@ -31,7 +31,11 @@ _Elemenos necesarios para poder levantar el proyecto de forma local y realizar l
 
 ###Configuración
 _Se debe configurar la conexión a la base de datos._
+<<<<<<< HEAD
 Se debe reemplazar el usuario, contraseña, url y puerto de Sequelize con los creados en el paso anterior, en el archivo 'configuracion.js' (server/configuracion.js).
+=======
+Se debe reemplazar el usuario y contraseña de la url de Sequelize con los creados en el paso anterior, en los archivos 'server.js', 'productos.js' (server/rutas/productos.js), 'pedidos.js' (server/rutas/pedidos.js) y 'middlewares.js' (server/middlewares/middlewares.js).
+>>>>>>> 684092746f568bc65fa7ddd042961673525006df
 
 var const sql = new Sequelize('mysql://USUARIO:CONTRASEÑA@localhost:3306/delilah');
 
