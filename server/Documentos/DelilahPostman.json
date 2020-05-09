@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e660ccdb-5aac-4f94-95dd-dfe1926de233",
+		"_postman_id": "bafd0ec8-381e-4f30-9136-94ed7eb7de9c",
 		"name": "Proyecto",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -476,6 +476,86 @@
 					]
 				},
 				"description": "Actualiza el estado de un pedido en particular:\n\nheaders:\nContent-type: application/json\nAuthorization: beaer token;\n\nEjemplo body:\n{\n\t\"estadoPedido\":\"cancelado\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4OTA1NzkxNzU2NiwiaWF0IjoxNTg5MDU3OTE3fQ.4h5U-bvPEVHkqaIdX_MbC2zw_REtmuAUIlVmQAzfU1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Lista de usuarios (adm)\n\n\nheaders: \ncontent-type: application/json;\nauthorization: bearer toker;\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4OTA1NzkxNzU2NiwiaWF0IjoxNTg5MDU3OTE3fQ.4h5U-bvPEVHkqaIdX_MbC2zw_REtmuAUIlVmQAzfU1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"2"
+					]
+				},
+				"description": "Te permitirá traer los datos de un usuario en particular indicandoló con número de ID.\n\nheaders: \ncontent-type: application/json;\nauthorization: bearer toker;\n\n"
 			},
 			"response": []
 		}

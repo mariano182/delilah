@@ -38,6 +38,36 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/login'
+  /users:
+    post:
+      tags:
+        - Usuarios
+      summary: Listar usuarios
+      parameters:
+        - name: Bearer token
+          in: header
+          description: token del usuario (recibido cuando te logueas o registrás)
+          schema:
+            type: string
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+          required: true
+        - name: '/:id'
+          in: path
+          description: requerido si se busca un solo producto
+          schema:
+            type: integer
+            example: 1
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'                
   /productos:
     get:
       tags:
@@ -267,6 +297,47 @@ components:
           description: token para utilizar el resto de las apis
           example: >-
             eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InVzZXIiLCJmZWNoYSI6MTU4ODExOTQ3OTczNywiaWF0IjoxNTg4MTE5NDc5fQ.GepGC9_vJ9pQH15BAtx1P5xV7AEhdj2mhHqvi1I826o
+    user:
+      type: object
+      properties:
+        msg:
+          type: string
+          example: "Usuario registrado en Delilah Resto"
+        rta:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              userName:
+                type: string
+                example: "admin"
+              name:
+                type: string
+                example: "Juan Roman"
+              lastName:
+                type: string
+                example: "Riquelme"
+              email:
+                type: string
+                example: "administrador@delilah.com"
+              phone:
+                type: number
+                example: 3416123456
+              address:
+                type: string
+                example: "Avenida Siempre Viva 123"
+              password: 
+                type: string
+                example: "Pachu1234"
+              token:
+                type: string
+                example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYSI6MTU4OTA1NzkxNzU2NiwiaWF0IjoxNTg5MDU3OTE3fQ.4h5U-bvPEVHkqaIdX_MbC2zw_REtmuAUIlVmQAzfU1U"
+              is_admin:
+                type: boolean
+                example: 1
     getProductos:
       type: object
       properties:

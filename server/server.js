@@ -2,8 +2,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
+const db = require('./configuracion.js');
 const Sequelize = require('sequelize');
-const sql = new Sequelize('mysql://root:12345678@localhost:3306/delilah');
+const sql = new Sequelize('mysql://' + db.user + ':' + db.password + '@' + db.url + ':' + db.port + '/delilah');
+const middlewares = require('./middlewares/middlewares.js');
 
 const productos = require('./rutas/productos.js');
 const pedidos = require('./rutas/pedidos.js');
@@ -67,6 +69,27 @@ app.post('/login', (req, res) => {
     )
 })
 
+app.get('/users', middlewares.verificarToken, middlewares.verificarAdm, (req, res) => {
+    sql.query('SELECT * FROM users', { type: Sequelize.QueryTypes.SELECT }).then((users) => {
+        if (users.length > 0) {
+            res.status(200).json({ msg: 'Usuarios en Delilah Resto', rta: users })
+        } else {
+            res.status(200).json({ msg: 'No hay usuarios registrados' })
+        }
+    })
+})
+
+app.get('/users/:id', middlewares.verificarToken, middlewares.verificarAdm, (req, res) => {
+
+    let idUser = req.params.id;
+    sql.query('SELECT * FROM users WHERE id = ?', { replacements: [idUser], type: Sequelize.QueryTypes.SELECT }).then((users) => {
+        if (users.length > 0) {
+            res.status(200).json({ msg: 'Usuario registrado en Delilah Resto', rta: users })
+        } else {
+            res.status(200).json({ msg: 'No hay ningun usuario registrado con esa información' })
+        }
+    })
+})
 
 
 app.listen(3000, function() {

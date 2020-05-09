@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
+const db = require('../configuracion.js');
 const Sequelize = require('sequelize');
-const sql = new Sequelize('mysql://root:12345678@localhost:3306/delilah');
+const sql = new Sequelize('mysql://' + db.user + ':' + db.password + '@' + db.url + ':' + db.port + '/delilah');
 const signature = 'PepeArgento';
 
 function verificarToken(req, res, next) {
